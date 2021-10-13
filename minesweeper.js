@@ -5,7 +5,10 @@
 
 // re add export to function, running nodemon
 const annotate = (input) => {
-  console.log(input)
+  // mapping board (array of strings)
+  input.map((row, rowIdx, rowArr) => {
+    console.log(row, rowArr)
+  })
 };
 
 annotate([' * * ', '  *  ', '  *  ', '     '])
