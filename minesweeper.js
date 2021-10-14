@@ -4,7 +4,7 @@
 //
 
 // re add export to function, running nodemon
-const annotate = (input) => {
+export const annotate = (input) => {
   // mapping board (array of strings)
   let answerArr = []
   input.map((row, rowIdx, rowArr) => {
@@ -27,4 +27,3 @@ const annotate = (input) => {
   return answerArr
 };
 
-annotate([' * * ', '  *  ', '  *  ', '     '])
