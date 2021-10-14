@@ -6,23 +6,25 @@
 // re add export to function, running nodemon
 const annotate = (input) => {
   // mapping board (array of strings)
-  const answer = input.map((row, rowIdx, rowArr) => {
+  let answerArr = []
+  input.map((row, rowIdx, rowArr) => {
     // mapping through row to figure count, spliting str in arr
+    let newRow = []
     row.split("").map((sqr, sqrIdx) => {
-      if(sqr === "*") return "*"
+      if(sqr === "*") return newRow.push("*")
       let count = 0
+      // cross examine both rows to determine patten
       for(let i = rowIdx-1; i<rowIdx+2; i++){
         for(let j = sqrIdx-1; j<sqrIdx+2; j++){
           if(!(i===rowIdx && j===sqrIdx) && rowArr[i] && rowArr[i][j]==='*') count++
         }
       }
-
-      count ? count : ' '
+      newRow.push(count ? count : ' ')
     })
-    row
+    answerArr.push(newRow.join(''))
   })
 
-  console.log(answer)
+  return answerArr
 };
 
 annotate([' * * ', '  *  ', '  *  ', '     '])
